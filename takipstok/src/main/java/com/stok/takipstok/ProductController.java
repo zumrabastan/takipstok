@@ -12,26 +12,21 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
-
-    // Tüm ürünleri listele
     @GetMapping
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // Yeni ürün ekle
     @PostMapping
     public Product addProduct(@RequestBody Product product) {
         return productRepository.save(product);
     }
 
-    // Belirli bir ürünü ID ile getir
     @GetMapping("/{id}")
     public Optional<Product> getProductById(@PathVariable Long id) {
         return productRepository.findById(id);
     }
 
-    // Ürün güncelle
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
         return productRepository.findById(id).map(product -> {
@@ -43,8 +38,6 @@ public class ProductController {
             return productRepository.save(updatedProduct);
         });
     }
-
-    // Ürün sil
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);

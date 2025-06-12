@@ -12,7 +12,7 @@ public class Product {
     private String name;
     private int quantity;
 
-    // Getter ve Setter'lar
+    
 
     public Long getId() {
         return id;

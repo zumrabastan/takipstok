@@ -11,6 +11,7 @@ public class LoggerThread extends Thread {
     public void run() {
         try {
             Thread.sleep(500); // Gecikme simülasyonu
+            Thread.sleep(500); 
             System.out.println("[LOG] " + logMessage);
         } catch (InterruptedException e) {
             System.err.println("Logger kesintiye uğradı.");
